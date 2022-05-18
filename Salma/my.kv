@@ -1,0 +1,46 @@
+WindowManager:
+    MainWindow:
+    SecondWindow:
+
+<MainWindow>:
+    name : "main"
+    GridLayout: 
+        cols:1
+        GridLayout:
+            rows:4
+            Image:
+                source:'img/page.jpg'
+            Label:
+                text: 'Lock Screen'
+                font_size: 22
+            Label:
+                text: 'please face recognation ' 
+                size_hint :(0.1, 0.3)   
+            TextInput:
+                id: passw
+                text:'Enter your name'
+                multiline:False
+                password :False
+                size_hint:(0.1,0.15)
+        Button:
+            text:" Login"
+            size_hint:(0.1,0.1)
+            on_release:
+                app.root.current='second' if passw.text=="salma" else "main"
+                root.manager.transition.direction="up"
+<SecondWindow>:
+    name : 'second'
+    GridLayout:
+        cols:2
+        GridLayout:
+            rows:3
+            Image:
+                source:'img/bac.jpg'
+            Label:
+                text:"welcome ....."    
+        Button:
+            text: "Go back "
+            size_hint:(0.1,0.3)  
+            on_release:
+                app.root.current="main"
+                root.manager.transition.direction = "down"
